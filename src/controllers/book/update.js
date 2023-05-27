@@ -5,11 +5,11 @@ module.exports = class UpdateBookController {
 
   async execute(request) {
     try {
-      if (request.params || request.params.id) {
+      if (!request.params || !request.params.id) {
         throw new Error("Missing book id");
       }
 
-      if (request.body) {
+      if (!request.body) {
         throw new Error("Missing request body data");
       }
 

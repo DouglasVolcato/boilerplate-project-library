@@ -8,9 +8,7 @@
 
 "use strict";
 
-const {
-  makeCreateBookControllerFactory,
-} = require("../src/factories/controllers/book/create");
+const makeCreateBookControllerFactory = require("../src/factories/controllers/book/create");
 
 module.exports = function (app) {
   app
@@ -25,7 +23,6 @@ module.exports = function (app) {
       const createBook = await createBookController.execute(req);
 
       res.status(createBook.status).send(createBook.body);
-      //response will contain new book object including atleast _id and title
     })
 
     .delete(function (req, res) {

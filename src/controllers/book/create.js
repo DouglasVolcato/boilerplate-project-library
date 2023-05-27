@@ -5,7 +5,7 @@ module.exports = class CreateBookController {
 
   async execute(request) {
     try {
-      if (request.body) {
+      if (!request.body) {
         throw new Error("Missing request body data");
       }
 
