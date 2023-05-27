@@ -22,7 +22,7 @@ module.exports = function (app) {
       const createBookController = makeCreateBookControllerFactory();
       const createBook = await createBookController.execute(req);
 
-      res.status(createBook.status).send(createBook.body);
+      res.status(createBook.status).json(createBook.body);
     })
 
     .delete(function (req, res) {
