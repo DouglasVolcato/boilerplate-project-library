@@ -1,7 +1,7 @@
 const { v4 } = require("uuid");
 
-export class IdGeneratorAdapter {
+module.exports = class IdGeneratorAdapter {
   generateId() {
     return v4();
   }
-}
+};

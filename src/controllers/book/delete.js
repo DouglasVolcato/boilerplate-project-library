@@ -1,4 +1,4 @@
-export class DeleteBookController {
+module.exports = class DeleteBookController {
   constructor(deleteBookService) {
     this.deleteBookService = deleteBookService;
   }
@@ -15,7 +15,7 @@ export class DeleteBookController {
 
       return {
         status: 200,
-        data: data,
+        body: data,
       };
     } catch (error) {
       return {
@@ -24,4 +24,4 @@ export class DeleteBookController {
       };
     }
   }
-}
+};

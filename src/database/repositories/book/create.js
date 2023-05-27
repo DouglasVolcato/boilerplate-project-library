@@ -1,4 +1,4 @@
-export class CreateBookRepository {
+module.exports = class CreateBookRepository {
   constructor(database) {
     this.database = database;
   }
@@ -6,4 +6,4 @@ export class CreateBookRepository {
   async execute(bookData) {
     return await Promise.resolve(this.database.push(bookData));
   }
-}
+};

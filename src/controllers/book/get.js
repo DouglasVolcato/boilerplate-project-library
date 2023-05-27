@@ -1,4 +1,4 @@
-export class GetBookController {
+module.exports = class GetBookController {
   constructor(getBookService) {
     this.getBookService = getBookService;
   }
@@ -12,7 +12,7 @@ export class GetBookController {
 
       return {
         status: 200,
-        data: data,
+        body: data,
       };
     } catch (error) {
       return {
@@ -21,4 +21,4 @@ export class GetBookController {
       };
     }
   }
-}
+};

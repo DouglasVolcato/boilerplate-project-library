@@ -1,4 +1,4 @@
-export class UpdateBookService {
+module.exports = class UpdateBookService {
   constructor(updateBookRepository, getBookRepository) {
     this.updateBookRepository = updateBookRepository;
     this.getBookRepository = getBookRepository;
@@ -20,4 +20,4 @@ export class UpdateBookService {
 
     return;
   }
-}
+};

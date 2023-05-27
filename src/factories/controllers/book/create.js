@@ -1,11 +1,11 @@
-import { CreateBookController } from "../../../controllers/book/create";
-import { CreateBookService } from "../../../data/services/book/create";
-import { BookValidator } from "../../../data/validators/book/validator";
-import { books } from "../../../database/mocks/books";
-import { CreateBookRepository } from "../../../database/repositories/book/create";
-import { IdGeneratorAdapter } from "../../../utils/adapters/id/idGenerator-adapter";
+const CreateBookController = require("../../../controllers/book/create");
+const CreateBookService = require("../../../data/services/book/create");
+const BookValidator = require("../../../data/validators/book/validator");
+const books = require("../../../database/mocks/books");
+const CreateBookRepository = require("../../../database/repositories/book/create");
+const IdGeneratorAdapter = require("../../../utils/adapters/id/idGenerator-adapter");
 
-export function makeCreateBookControllerFactory() {
+module.exports = function makeCreateBookControllerFactory() {
   const database = books;
   const createBookRepository = new CreateBookRepository(database);
   const bookValidator = new BookValidator();
@@ -17,4 +17,4 @@ export function makeCreateBookControllerFactory() {
   );
 
   return new CreateBookController(createBookService);
-}
+};

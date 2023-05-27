@@ -4,7 +4,7 @@ import { books } from "../../../database/mocks/books";
 import { DeleteBookRepository } from "../../../database/repositories/book/delete";
 import { GetBookRepository } from "../../../database/repositories/book/get";
 
-export function makeDeleteBookControllerFactory() {
+module.exports = function makeDeleteBookControllerFactory() {
   const database = books;
   const deleteBookRepository = new DeleteBookRepository(database);
   const getBookRepository = new GetBookRepository(database);
@@ -14,4 +14,4 @@ export function makeDeleteBookControllerFactory() {
   );
 
   return new DeleteBookController(deleteBookService);
-}
+};

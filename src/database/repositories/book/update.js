@@ -1,4 +1,4 @@
-export class UpdateBookRepository {
+module.exports = class UpdateBookRepository {
   constructor(database) {
     this.database = database;
   }
@@ -14,4 +14,4 @@ export class UpdateBookRepository {
       this.database.splice(itemPosition, 1, bookData)
     );
   }
-}
+};

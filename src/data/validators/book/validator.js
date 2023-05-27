@@ -1,4 +1,4 @@
-export class BookValidator {
+module.exports = class BookValidator {
   validate(bookData) {
     switch (true) {
       case !bookData.title:
@@ -8,4 +8,4 @@ export class BookValidator {
         return;
     }
   }
-}
+};

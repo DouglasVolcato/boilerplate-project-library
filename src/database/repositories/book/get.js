@@ -1,4 +1,4 @@
-export class GetBookRepository {
+module.exports = class GetBookRepository {
   constructor(database) {
     this.database = database;
   }
@@ -16,4 +16,4 @@ export class GetBookRepository {
         });
     }
   }
-}
+};

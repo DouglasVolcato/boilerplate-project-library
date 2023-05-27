@@ -4,7 +4,7 @@ import { books } from "../../../database/mocks/books";
 import { GetBookRepository } from "../../../database/repositories/book/get";
 import { UpdateBookRepository } from "../../../database/repositories/book/update";
 
-export function makeUpdateBookControllerFactory() {
+module.exports = function makeUpdateBookControllerFactory() {
   const database = books;
   const updateBookRepository = new UpdateBookRepository(database);
   const getBookRepository = new GetBookRepository(database);
@@ -14,4 +14,4 @@ export function makeUpdateBookControllerFactory() {
   );
 
   return new UpdateBookController(updateBookService);
-}
+};

@@ -1,4 +1,4 @@
-export class GetBookService {
+module.exports = class GetBookService {
   constructor(getBookRepository) {
     this.getBookRepository = getBookRepository;
   }
@@ -6,4 +6,4 @@ export class GetBookService {
   async execute(bookId = null) {
     return await this.getBookRepository.execute(bookId);
   }
-}
+};

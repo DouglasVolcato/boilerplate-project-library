@@ -1,4 +1,4 @@
-export class DeleteBookService {
+module.exports = class DeleteBookService {
   constructor(deleteBookRepository, getBookRepository) {
     this.deleteBookRepository = deleteBookRepository;
     this.getBookRepository = getBookRepository;
@@ -15,4 +15,4 @@ export class DeleteBookService {
 
     return;
   }
-}
+};

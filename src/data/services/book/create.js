@@ -1,4 +1,4 @@
-export class CreateBookService {
+module.exports = class CreateBookService {
   constructor(createBookRepository, bookValidator, idGeneratorAdapter) {
     this.createBookRepository = createBookRepository;
     this.bookValidator = bookValidator;
@@ -17,4 +17,4 @@ export class CreateBookService {
 
     return newBook;
   }
-}
+};

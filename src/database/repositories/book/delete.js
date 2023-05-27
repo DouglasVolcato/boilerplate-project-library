@@ -1,4 +1,4 @@
-export class DeleteBookRepository {
+module.exports = class DeleteBookRepository {
   constructor(database) {
     this.database = database;
   }
@@ -12,4 +12,4 @@ export class DeleteBookRepository {
 
     return await Promise.resolve(this.database.splice(itemPosition, 1));
   }
-}
+};
