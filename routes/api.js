@@ -20,21 +20,21 @@ module.exports = function (app) {
       const getBookController = makeGetBookControllerFactory();
       const getBook = await getBookController.execute(req);
 
-      res.status(getBook.status).json(getBook.body);
+      res.json(getBook.body);
     })
 
     .post(async function (req, res) {
       const createBookController = makeCreateBookControllerFactory();
       const createBook = await createBookController.execute(req);
 
-      res.status(createBook.status).json(createBook.body);
+      res.json(createBook.body);
     })
 
     .delete(async function (req, res) {
       const deleteBookController = makeDeleteBookControllerFactory();
       const deleteBook = await deleteBookController.execute(req);
 
-      res.status(deleteBook.status).json(deleteBook.body);
+      res.json(deleteBook.body);
     });
 
   app
@@ -43,20 +43,20 @@ module.exports = function (app) {
       const getBookController = makeGetBookControllerFactory();
       const getBook = await getBookController.execute(req);
 
-      res.status(getBook.status).json(getBook.body);
+      res.json(getBook.body);
     })
 
     .post(async function (req, res) {
       const getCommentController = makeCreateCommentControllerFactory();
       const getComment = await getCommentController.execute(req);
 
-      res.status(getComment.status).json(getComment.body);
+      res.json(getComment.body);
     })
 
     .delete(async function (req, res) {
       const deleteBookController = makeDeleteBookControllerFactory();
       const deleteBook = await deleteBookController.execute(req);
 
-      res.status(deleteBook.status).json(deleteBook.body);
+      res.json(deleteBook.body);
     });
 };
