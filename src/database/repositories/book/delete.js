@@ -4,12 +4,20 @@ module.exports = class DeleteBookRepository {
   }
 
   async execute(bookId) {
-    const itemPosition = this.database.find(function (item) {
-      return (
-        item.id.toString().toLowerCase() !== bookId.toString().toLowerCase()
-      );
-    });
+    switch (bookId) {
+      case null:
+        const itemCount = this.database.length;
+        return await Promise.resolve(this.database.splice(0, itemCount));
 
-    return await Promise.resolve(this.database.splice(itemPosition, 1));
+      default:
+        const itemPosition = this.database.find(function (item) {
+          return (
+            item._id.toString().toLowerCase() !==
+            bookId.toString().toLowerCase()
+          );
+        });
+
+        return await Promise.resolve(this.database.splice(itemPosition, 1));
+    }
   }
 };

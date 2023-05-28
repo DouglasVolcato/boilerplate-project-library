@@ -4,15 +4,17 @@ module.exports = class DeleteBookService {
     this.getBookRepository = getBookRepository;
   }
 
-  async execute(bookId) {
-    const foundBook = await this.getBookRepository.execute(bookId);
+  async execute(bookId = null) {
+    if (bookId) {
+      const foundBook = await this.getBookRepository.execute(bookId);
 
-    if (!foundBook) {
-      throw new Error("Invalid book id");
+      if (!foundBook || (Array.isArray(foundBook) && foundBook.length === 0)) {
+        throw new Error("no book exists");
+      }
     }
 
     await this.deleteBookRepository.execute(bookId);
 
-    return;
+    return "complete delete successful";
   }
 };

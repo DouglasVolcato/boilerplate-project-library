@@ -5,11 +5,8 @@ module.exports = class DeleteBookController {
 
   async execute(request) {
     try {
-      if (!request.params || !request.params.id) {
-        throw new Error("Missing book id");
-      }
-
-      const bookId = request.params.id;
+      const bookId =
+        request.params && request.params.id ? request.params.id : null;
 
       const data = await this.deleteBookService.execute(bookId);
 
