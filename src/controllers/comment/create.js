@@ -6,7 +6,7 @@ module.exports = class CreateCommentController {
   async execute(request) {
     try {
       if (!request.body || !request.body.comment) {
-        throw new Error("missing comment");
+        throw new Error("missing required field comment");
       }
 
       if (!request.params || !request.params.id) {

@@ -19,6 +19,6 @@ module.exports = class CreateCommentService {
 
     await this.updateBookRepository.execute(bookId, newBook);
 
-    return;
+    return newBook;
   }
 };

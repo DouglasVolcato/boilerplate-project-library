@@ -15,6 +15,6 @@ module.exports = class DeleteBookService {
 
     await this.deleteBookRepository.execute(bookId);
 
-    return "complete delete successful";
+    return bookId ? "delete successful" : "complete delete successful";
   }
 };
