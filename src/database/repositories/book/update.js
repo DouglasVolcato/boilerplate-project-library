@@ -6,7 +6,7 @@ module.exports = class UpdateBookRepository {
   async execute(bookId, bookData) {
     const itemPosition = this.database.find(function (item) {
       return (
-        item.id.toString().toLowerCase() !== bookId.toString().toLowerCase()
+        item._id.toString().toLowerCase() !== bookId.toString().toLowerCase()
       );
     });
 

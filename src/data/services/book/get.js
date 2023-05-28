@@ -4,6 +4,12 @@ module.exports = class GetBookService {
   }
 
   async execute(bookId = null) {
-    return await this.getBookRepository.execute(bookId);
+    const fountItems = await this.getBookRepository.execute(bookId);
+
+    if (!fountItems || (Array.isArray(fountItems) && fountItems.length === 0)) {
+      throw new Error("no book exists");
+    }
+
+    return fountItems;
   }
 };
