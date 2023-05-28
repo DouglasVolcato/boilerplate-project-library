@@ -11,6 +11,7 @@ module.exports = class CreateBookService {
     const newBook = {
       _id: this.idGenerator.generateId(),
       title: bookData.title,
+      comments: [],
     };
 
     await this.createBookRepository.execute(newBook);
