@@ -9,13 +9,18 @@
 "use strict";
 
 const makeCreateBookControllerFactory = require("../src/factories/controllers/book/create");
+const makeGetBookControllerFactory = require("../src/factories/controllers/book/get");
+const makeDeleteBookControllerFactory = require("../src/factories/controllers/book/delete");
+const makeCreateCommentControllerFactory = require("../src/factories/controllers/comment/create");
 
 module.exports = function (app) {
   app
     .route("/api/books")
-    .get(function (req, res) {
-      //response will be array of book objects
-      //json res format: [{"_id": bookid, "title": book_title, "commentcount": num_of_comments },...]
+    .get(async function (req, res) {
+      const getBookController = makeGetBookControllerFactory();
+      const getBook = await getBookController.execute(req);
+
+      res.status(getBook.status).json(getBook.body);
     })
 
     .post(async function (req, res) {
@@ -25,25 +30,33 @@ module.exports = function (app) {
       res.status(createBook.status).json(createBook.body);
     })
 
-    .delete(function (req, res) {
-      //if successful response will be 'complete delete successful'
+    .delete(async function (req, res) {
+      const deleteBookController = makeDeleteBookControllerFactory();
+      const deleteBook = await deleteBookController.execute(req);
+
+      res.status(deleteBook.status).json(deleteBook.body);
     });
 
   app
     .route("/api/books/:id")
-    .get(function (req, res) {
-      let bookid = req.params.id;
-      //json res format: {"_id": bookid, "title": book_title, "comments": [comment,comment,...]}
+    .get(async function (req, res) {
+      const getBookController = makeGetBookControllerFactory();
+      const getBook = await getBookController.execute(req);
+
+      res.status(getBook.status).json(getBook.body);
     })
 
-    .post(function (req, res) {
-      let bookid = req.params.id;
-      let comment = req.body.comment;
-      //json res format same as .get
+    .post(async function (req, res) {
+      const getCommentController = makeCreateCommentControllerFactory();
+      const getComment = await getCommentController.execute(req);
+
+      res.status(getComment.status).json(getComment.body);
     })
 
-    .delete(function (req, res) {
-      let bookid = req.params.id;
-      //if successful response will be 'delete successful'
+    .delete(async function (req, res) {
+      const deleteBookController = makeDeleteBookControllerFactory();
+      const deleteBook = await deleteBookController.execute(req);
+
+      res.status(deleteBook.status).json(deleteBook.body);
     });
 };
