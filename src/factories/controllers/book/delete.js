@@ -1,8 +1,8 @@
-import { DeleteBookController } from "../../../controllers/book/delete";
-import { DeleteBookService } from "../../../data/services/book/delete";
-import { books } from "../../../database/mocks/books";
-import { DeleteBookRepository } from "../../../database/repositories/book/delete";
-import { GetBookRepository } from "../../../database/repositories/book/get";
+const DeleteBookController = require("../../../controllers/book/delete");
+const DeleteBookService = require("../../../data/services/book/delete");
+const books = require("../../../database/mocks/books");
+const DeleteBookRepository = require("../../../database/repositories/book/delete");
+const GetBookRepository = require("../../../database/repositories/book/get");
 
 module.exports = function makeDeleteBookControllerFactory() {
   const database = books;

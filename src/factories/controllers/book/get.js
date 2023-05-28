@@ -1,7 +1,7 @@
-import { GetBookController } from "../../../controllers/book/get";
-import { GetBookService } from "../../../data/services/book/get";
-import { books } from "../../../database/mocks/books";
-import { GetBookRepository } from "../../../database/repositories/book/get";
+const GetBookController = require("../../../controllers/book/get");
+const GetBookService = require("../../../data/services/book/get");
+const books = require("../../../database/mocks/books");
+const GetBookRepository = require("../../../database/repositories/book/get");
 
 module.exports = function makeGetBookControllerFactory() {
   const database = books;
